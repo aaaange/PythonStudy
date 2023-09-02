@@ -12,11 +12,13 @@
 
 input1 = input().split()
 input2 = input().split()
+output1 = []
 
 i = 0
 while i < int(input1[0]):
     if(int(input1[1]) > int(input2[i])):
-        output1 = input2[i]
+        output1.append(input2[i])
     i = i+1
+output1 = " ".join(output1) #문자열 합치기
 print(output1)
 
