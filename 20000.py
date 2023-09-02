@@ -5,4 +5,4 @@
 # 출력 - Hello World
 
 
-print("Hello world")
+print("Hello World")
