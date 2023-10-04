@@ -41,4 +41,4 @@ for index, data in enumerate(listData): # enumerate(데이터) -> 인덱스와 �
 
 # finally
 print(max)
-print(line)
+print(line) 
