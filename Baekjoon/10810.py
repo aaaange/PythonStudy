@@ -15,3 +15,30 @@
 # 출력
 # 1번 바구니부터 N번 바구니에 들어있는 공의 번호를 공백으로 구분해 출력한다. 공이 들어있지 않은 바구니는 0을 출력한다.
 
+input1 = list(map(int, input().split()))
+h = 0
+box = []
+for h in range(input1[0]): # 바구니 만들기
+    box.append(0)
+    h =+ 1
+print(box)
+
+m = 0
+k = 0
+for m in range(input1[1]): # m개의 줄 반복
+    # input2 = int(input().split())
+    # for k in range(input2[2]): # k번까지 숫자 넣기 
+    #     while input2[2]: #??
+    #         while input2[1]: #
+    #             box[input2[0]-1] =+ 1
+        
+    #     box.append
+    m =+ 1
+
+# input 반복하는 방법
+
+
+
+
+            
+            
