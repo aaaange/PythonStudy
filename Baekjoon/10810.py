@@ -15,25 +15,34 @@
 # 출력
 # 1번 바구니부터 N번 바구니에 들어있는 공의 번호를 공백으로 구분해 출력한다. 공이 들어있지 않은 바구니는 0을 출력한다.
 
+
+# 바구니 만들기 > 반복 : 첫째 줄 공을 정해진 구간에 제시된 같은 수를 바구니에 담고, 두번째 줄 공 빼고 넣고 하기, 세번째 ..., 
+
 input1 = list(map(int, input().split()))
 h = 0
 box = []
 for h in range(input1[0]): # 바구니 만들기
     box.append(0)
-    h =+ 1
+    # h =+ 1
 print(box)
 
-m = 0
-k = 0
-for m in range(input1[1]): # m개의 줄 반복
-    # input2 = int(input().split())
-    # for k in range(input2[2]): # k번까지 숫자 넣기 
+# m = 0
+# k = 0
+# for m in range(input1[1]): # m개의 줄 반복
+#     input2 = int(input().split())
+#     # for input2[0] in range(input2[1]+1): #?
+#     if box[] # 박스 번호와 input2[0]이 동일하면 호출해서 input2[1]와 동일한 박스 번호까지 k가 적힌 공 넣을 거임... 근데 박스 번호를 어캐 호출함 ㅇㅅㅇ?
+
+
+
+
+    # for k in range(input2[2]): # k번까지 숫자 넣기 xxxxxxxxxxxxx
     #     while input2[2]: #??
     #         while input2[1]: #
     #             box[input2[0]-1] =+ 1
         
     #     box.append
-    m =+ 1
+    # m =+ 1
 
 # input 반복하는 방법
 
