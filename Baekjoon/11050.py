@@ -31,9 +31,6 @@ def factorial(n):
         # 재귀 호출: n과 n-1의 팩토리얼을 곱한 결과를 반환
         return n * factorial(n - 1) # 반환 값들이 누적이 되어 있음.
 
-# 팩토리얼 계산 예시
-print(factorial(5))  # 120
-
 
 input_1 = list(map(int, input().split()))
 
