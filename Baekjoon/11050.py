@@ -41,4 +41,4 @@ N = factorial(input_1[0])
 K = factorial(input_1[1])
 N_K = factorial(input_1[0] - input_1[1])
 
-print(N/(K*N_K))
+print(N//(K*N_K))
