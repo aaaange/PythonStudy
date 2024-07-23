@@ -18,10 +18,17 @@ for number in range(28):
     input_1 = int(input())
     number_list.append(input_1)
     number += 1
-print(number_list)
+# print(number_list)
 for i in range(1,31):
     if i not in number_list:
         x_list.append(int(i))
 
-print(min(x_list))
-print(max(x_list))
+x_list.sort()
+print(x_list[0])
+print(x_list[1])
+
+# min_1 = min(x_list)
+# print(min(x_list))
+# min_index = x_list.index(min(x_list))
+# x_list.remove(min_1)
+# print(x_list)
