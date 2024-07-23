@@ -16,3 +16,24 @@
 # 1번 바구니부터 N번 바구니에 들어있는 공의 번호를 공백으로 구분해 출력한다.
 
 
+N_M = input().split()
+box_size = int(N_M[0])
+M = int(N_M[1])
+
+# 바구니 만들기
+box = []
+for i in range(1,box_size+1):
+    box.append(i)
+
+
+for idx in range(M): # 교환 할 횟수 
+    input_data = list(map(int,input().split())) # 입력 받기
+    # for 
+    # for i in range(int(input_data[0]), int(input_data[1])+1): # 입력 받은 수로 공번호 고르기
+    #     box[i-1] = int(input_data[2])
+    box[input_data[0]], box[input_data[1]] = box[input_data[1]],box[input_data[0]]
+    # print(box[input_data[0]])   
+    # print(box[input_data[1]])   
+
+
+print(" ".join(str(s) for s in box))
