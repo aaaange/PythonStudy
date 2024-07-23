@@ -11,3 +11,17 @@
 # 출력
 # 출력은 2줄이다. 1번째 줄엔 제출하지 않은 학생의 출석번호 중 가장 작은 것을 출력하고, 2번째 줄에선 그 다음 출석번호를 출력한다.
 
+number_list = []
+x_list = []
+
+for number in range(28):
+    input_1 = int(input())
+    number_list.append(input_1)
+    number += 1
+print(number_list)
+for i in range(1,31):
+    if i not in number_list:
+        x_list.append(int(i))
+
+print(min(x_list))
+print(max(x_list))
