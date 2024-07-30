@@ -18,6 +18,15 @@
 # 1 ≤ k, n ≤ 14
 
 
+test_case = int(input())
 
+for _ in range(test_case): # test_case만큼 반복
+    floor = int(input())
+    number = int(input())
+    sum_1 = 0
+    for f in range(floor):
+        for n in range(1, number+1):
+            sum_1 += n
+    print(sum_1)    
 
     
