@@ -23,10 +23,18 @@ test_case = int(input())
 for _ in range(test_case): # test_case만큼 반복
     floor = int(input())
     number = int(input())
-    sum_1 = 0
-    for f in range(floor):
-        for n in range(1, number+1):
-            sum_1 += n
-    print(sum_1)    
+    
+    # 0층 사람 수 초기화, 첫 층은 리스트 만들어 주기
+    people = []
+    for i in range(1, number+1):
+        people.append(i)
+    
+    # 1층부터 k층까지 사람 수 계산
+    for floor in range(1, floor + 1): # 1층부터 floor 층까지 반복
+        for room in range(1, number): # 1호부터 number-1호까지 반복
+            people[room] += people[room - 1] # 현 호수는 아래 층 이전 호수에 아래 층 현 호수 더해서 넣어줌.
+            
+            
+    print(people[number-1])    # 인덱스는 0부터 시작하니까 -1 해줌
 
     
