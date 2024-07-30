@@ -53,8 +53,33 @@
     
 
 # 버블 함수를 이용한 방법 -> 시간 초과
+# n = int(input())  # 단어의 개수
+# my_list = [] 
+
+# for _ in range(n):
+#     my_list.append(input())
+
+# # 중복 제거
+# unique_list = list(set(my_list))
+
+# # 버블 정렬을 사용하여 정렬 (길이와 사전 순으로)
+# for i in range(len(unique_list)): # 중복 제거한 리스트 길이 만큼 반복 
+#     for j in range(0, len(unique_list) - i - 1): # 0부터 중복 제거 리스트 길이 - i - 1 || 버블 정렬은 맨 뒤 자리부터는 이제 안봐도 되니 도는 범위를 점차 줄임
+#         # 두 단어를 비교하여 정렬 기준에 따라 교환
+#         if len(unique_list[j]) > len(unique_list[j + 1]) or ( # 길이가 짧은게 앞으로 오게 
+#                 len(unique_list[j]) == len(unique_list[j + 1]) and unique_list[j] > unique_list[j + 1]): # 길이가 같으면 사전 순으로 앞으로 오게
+#             # 두 단어를 교환
+#             unique_list[j], unique_list[j + 1] = unique_list[j + 1], unique_list[j]
+
+# # 정렬된 단어들을 출력
+# for word in unique_list:
+#     print(word)
+
+# -----------------------------------
+
+# sort 메서드를 이용한 방법 -> 정답
 n = int(input())  # 단어의 개수
-my_list = [] 
+my_list = []
 
 for _ in range(n):
     my_list.append(input())
@@ -62,17 +87,8 @@ for _ in range(n):
 # 중복 제거
 unique_list = list(set(my_list))
 
-# 버블 정렬을 사용하여 정렬 (길이와 사전 순으로)
-for i in range(len(unique_list)): # 중복 제거한 리스트 길이 만큼 반복 
-    for j in range(0, len(unique_list) - i - 1): # 0부터 중복 제거 리스트 길이 - i - 1
-        # 두 단어를 비교하여 정렬 기준에 따라 교환
-        if len(unique_list[j]) > len(unique_list[j + 1]) or ( # 길이가 짧은게 앞으로 오게 
-                len(unique_list[j]) == len(unique_list[j + 1]) and unique_list[j] > unique_list[j + 1]): # 길이가 같으면 사전 순으로 앞으로 오게
-            # 두 단어를 교환
-            unique_list[j], unique_list[j + 1] = unique_list[j + 1], unique_list[j]
+# 정렬: 길이가 짧은 순, 길이가 같으면 사전 순
+unique_list.sort(key=lambda x: (len(x), x))
 
-# 정렬된 단어들을 출력
 for word in unique_list:
     print(word)
-
-
