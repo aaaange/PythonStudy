@@ -35,9 +35,10 @@ N = int(input()) # 점의 개수
 
 my_list = []
 for i in range(N): # 점의 좌표 받아주기
-    my_list.append(input())
+    x, y = map(int, input().split())
+    my_list.append((x,y))
 
 my_list.sort()
 
-for i in range(N): # 순서대로 출력하기
-    print(my_list[i])
+for x, y in my_list: # 순서대로 출력하기
+    print(x,y)
