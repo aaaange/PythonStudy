@@ -10,3 +10,18 @@
 # 첫째 줄부터 N개의 줄에 점을 정렬한 결과를 출력한다.
 
 
+N = int(input()) # 점의 개수 
+
+my_list = []
+for i in range(N): # 점의 좌표 받아주기
+    my_list.append(input())
+
+for i in range(N-1,0,-1): # 버블 정렬 사용하여 정렬하기
+    for j in range(0,i):
+        if my_list[j] > my_list[j+1]:
+            
+            my_list[j], my_list[j+1] = my_list[j+1], my_list[j]
+            
+for i in range(N): # 순서대로 출력하기
+    print(my_list[i])
+
