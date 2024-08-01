@@ -31,6 +31,9 @@
 
 ## sort 사용하기
 
+import sys
+input = sys.stdin.readline
+
 N = int(input()) # 점의 개수 
 
 my_list = []
