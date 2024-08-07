@@ -13,3 +13,24 @@
 # 출력
 # 첫째 줄에 달팽이가 나무 막대를 모두 올라가는데 며칠이 걸리는지 출력한다.
 
+
+
+# A : 낮에 올라가는 높이(m)
+# B : 자는 동안 미끄러지는 높이 (m) -- 정상에 올라간 후에는 미끌어지지 않음
+# V : 나무 막대의 높이 (m)
+
+
+A, B, V = map(int, input().split())
+
+height = 0
+Day = 1
+
+while height < V:
+    height += A
+    if height >= V:
+        break
+    else:
+        height -= B
+        Day += 1
+
+print(Day)
