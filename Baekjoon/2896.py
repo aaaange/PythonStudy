@@ -19,18 +19,21 @@
 # B : 자는 동안 미끄러지는 높이 (m) -- 정상에 올라간 후에는 미끌어지지 않음
 # V : 나무 막대의 높이 (m)
 
+import sys
+input = sys.stdin.readline ## 시간 줄여주기
 
 A, B, V = map(int, input().split())
 
-height = 0
-Day = 1
+# height = A - B
 
-while height < V:
-    height += A
-    if height >= V:
-        break
-    else:
-        height -= B
-        Day += 1
+result = ((V - A) / (A-B) ) + 1
 
-print(Day)
+# while height < V:
+#     height += A
+#     if height >= V:
+#         break
+#     else:
+#         height -= B
+#         Day += 1
+
+print(int(result))
