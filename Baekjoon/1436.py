@@ -14,3 +14,21 @@
 # 첫째 줄에 N번째 영화의 제목에 들어간 수를 출력한다.
 
 
+N = int(input())
+
+# print(f'{N-1}666')
+
+
+def count_666(N):
+    count = 0
+    number = 666
+    while True:
+        if '666' in str(number):
+            count += 1
+            if count == N:
+                return number
+                break
+        number += 1
+    
+result = count_666(N)    
+print(result)
