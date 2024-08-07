@@ -22,6 +22,8 @@
 import sys
 input = sys.stdin.readline ## 시간 줄여주기
 
+import math
+
 A, B, V = map(int, input().split())
 
 # height = A - B
@@ -36,4 +38,4 @@ result = ((V - A) / (A-B) ) + 1
 #         height -= B
 #         Day += 1
 
-print(int(result))
+print(math.ceil(result))
