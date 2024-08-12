@@ -14,39 +14,46 @@
 
 N = int(input())
 
+# 퀵정렬 응용
+def quick_sort(arr):
+    # 리스트의 길이가 1 이하이면, 이미 정렬된 상태이므로 바로 반환
+    if len(arr) <= 1:
+        return arr
+    
+    # 피벗 선택 (첫 번째 요소 선택)
+    pivot = arr[len(arr) // 2]
+    
+    left = [] # 피벗보다 작은 요소들을 담을 리스트
+    middle = []  # 피벗과 같은 요소들을 담을 리스트
+    right = []  # 피벗보다 큰 요소들을 담을 리스트
+    
+    for element in arr:
+        # 나이 비교 -> 나이가 같다면 입력 순서 유지 (안정정렬)
+        if element[0] < pivot[0]:  # 나이 비교
+            left.append(element)
+        elif element[0] == pivot[0]:
+            middle.append(element)  # 나이가 같으면 middle에 추가
+        else:
+            right.append(element)   # 나이가 크면 right에 추가
+    
+    return quick_sort(left) + middle + quick_sort(right)
+
+# 입력 받을 리스트
 member_list = []
 
+# 데이터 입력받기
 for _ in range(N):
-    member_list.append(input())
-
-# print(member_list)
-
-# # 버블정렬 응용하기
-# def BubbleSort_2(a, N): # 버블 정렬 응용
-#     for one in range(N-1, 0, -1): # N-1부터 0까지 역수를 준다. 
-#         for two in range(one): 
-#             if a[two][0:3] > a[two+1][0:3]: # 리스트의 요소들을 비교하는데 인덱스 0, 1번째 요소만 고려하여 a[two]가 더 크면
-#                 a[two], a[two+1] = a[two+1], a[two] # 서로 자리를 바꿔주기
-#             elif a[two][0:3] == a[two+1][0:3]: # 그러나 같으면 아무것도 하지 않고 넘기기 (왜냐면 입력순으로 줄 세워야 하기에)
-#                 pass
-            
-
-# # for i in range(N):
-# #     member_list[i][0:3]
-# #     BubbleSort(member_list[i][0:3], N)
-
-# BubbleSort_2(member_list, N) # 위에 만든 응용버블함수에 넣기
-
-# for i in range(N):
-#     print(member_list[i]) # 하나씩 출력하기
+    user_input = input() 
     
-# 카운팅정렬
+    # 입력을 공백 기준으로 나누어 나이와 이름을 추출
+    age, name = user_input.split()
+    
+    # 나이를 정수로 변환하고 튜플로 저장
+    member_list.append((int(age), name))
 
-COUNTS = [0] * N
-TEMP = [0] * N
+# 정렬 수행
+sorted_data = quick_sort(member_list)
 
-# 1단계 : member_list 원소 별 개수 세기
-for x in member_list:
-    COUNTS[x[0:3]]
-
-print(COUNTS)
+# 결과 출력
+for age, name in sorted_data:
+    print(age, name)
