@@ -13,3 +13,27 @@
 # 출력
 # 예제와 같이 요세푸스 순열을 출력한다.
 
+N, K = map(int, input().split()) # N : 인원 수, K : 뽑을 번호
+
+count = 0
+member = [] # 이거 한 줄로 작성하는 것 알아보기
+for x in range(1, N+1):
+    member.append(x)
+result = []
+
+while len(result) < N:
+    for i in range(N):
+        if member[i] != 0:
+            count += 1
+            if (count % K) == 0:
+                result.append(member[i])
+                member[i] = 0
+                count = 0
+
+print(f'<', end = '')
+print(*result, sep = ', ', end = '')
+print(f'>')
+
+
+            
+
