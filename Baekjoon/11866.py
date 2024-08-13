@@ -15,24 +15,24 @@
 
 N, K = map(int, input().split()) # N : 인원 수, K : 뽑을 번호
 
-count = 0
+count = 0 # K번째를 뽑아내기 위한 변수
 member = [] # 이거 한 줄로 작성하는 것 알아보기
-for x in range(1, N+1):
+for x in range(1, N+1): # 1에서 N까지의 사람들을 list에 하나씩 담아주기 위한 for문
     member.append(x)
-result = []
+result = [] # 결과 값을 담아줄 리스트
 
-while len(result) < N:
-    for i in range(N):
-        if member[i] != 0:
-            count += 1
-            if (count % K) == 0:
-                result.append(member[i])
-                member[i] = 0
-                count = 0
+while len(result) < N: # 결과 값의 길이가 최대 인원보다 작은 동안만 돌아가는 반복문
+    for i in range(N): # 0에서 N-1을 반복
+        if member[i] != 0: # 만약 i번째 멤버가 0이 아니라면
+            count += 1 # count를 하나 올려준다. 왜냐하면 빈 값을 0을 넣어줄 것이기 때문
+            if (count % K) == 0: # 카운트를 K로 나눈 나머지가 0이라면(즉, 지금이 K번째 순서라면)
+                result.append(member[i]) # 결과 값을 담아줄 리스트에 해당 멤버를 추가
+                member[i] = 0 # 그리고 그 자리를 0으로 둔다.
+                count = 0 # 카운트를 초기화 한다. (엇 그러면 위에 K로 나눈 나머지.. 이거 안쓰고 그냥 카운트는 K라면도 가능했겠다.)
 
-print(f'<', end = '')
-print(*result, sep = ', ', end = '')
-print(f'>')
+print(f'<', end = '') # 꺾인 괄호를 넣고 줄바꿈을 없애줌.
+print(*result, sep = ', ', end = '') # 결과 리스트를 언패킹하고 구분자로 ','를 지정, 줄바꿈 제거
+print(f'>') # 꺾인 괄호 넣기
 
 
             
