@@ -11,4 +11,20 @@
 # 출력
 # 첫째 줄에, 42로 나누었을 때, 서로 다른 나머지가 몇 개 있는지 출력한다.
 
+int_list = [] # 입력 값을 받을 리스트
+for _ in range(10): # 10개의 수를 입력 받는다고 하였으니 0부터 9까지 10번 반복
+    int_list.append(int(input())) # 입력 값을 리스트에 추가하여 입력 받기
+    
+    
+remainder = [] # 나머지를 받을 리스트
+for i in range(10): # 10개의 수를 입력 받는다고 하였으니 0부터 9까지 10번 반복
+    remainder.append(int_list[i] % 42) # 42로 나눈 나머지의 값을 리스트에 추가하기
 
+result = [] # 나머지 값들을 중복 없이 세기 위한 리스트
+count = 0 # 위 리스트에 값이 들어올 때마다 카운트 + 1
+for i in range(10): 
+    if remainder[i] not in result: # 리마인더의 i번째 값이 result리스트에 들어 있지 않다면 (=중복되지않는다면)
+        result.append(remainder[i]) # 리스트에 담기
+        count += 1 
+
+print(count) # result 리스트의 개수 출력
