@@ -15,3 +15,22 @@
 # 첫 줄에 네개의 직사각형이 차지하는 면적을 출력한다.
 
 # https://www.acmicpc.net/problem/2669
+
+arr = [[0]*100 for _ in range(100)] # 배열 만들어주기
+
+
+for _ in range(4):
+    start_x, start_y, end_x, end_y = map(int, input().split())
+    
+    for row in range(start_x, end_x):
+        for col in range(start_y, end_y):
+            arr[row][col] = 1
+
+count = 0
+
+for row in range(100):
+    for col in range(100):
+        if arr[row][col] == 1:
+            count += 1
+
+print(count)
