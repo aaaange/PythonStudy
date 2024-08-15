@@ -23,8 +23,8 @@
 def paper(w, h):
     drow = []
     dcol = []
-    for row in range(h):
-        for col in range(w):
+    for row in range(w):
+        for col in range(h):
             drow.append(row)
             dcol.append(col)
     return drow, dcol
