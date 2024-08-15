@@ -18,13 +18,17 @@
 
 # https://www.acmicpc.net/problem/10163
 
+import sys
+
+input = sys.stdin.readline
+
 
 # 색종이 범위의 델타를 구하는 함수
 def paper(w, h):
     drow = []
     dcol = []
     for row in range(w):
-        for col in range(h):
+        for col in range():
             drow.append(row)
             dcol.append(col)
     return drow, dcol
@@ -38,9 +42,6 @@ arr = [[None]*M for _ in range(M)] # 가로 세로 1001칸인 배열 만들기
 for n in range(N): # 색종이 개수만큼 반복
     x, y, w, h = map(int, input().split())
     drow, dcol = paper(w,h)
-    # print(f'#drow {drow}')
-    # print(f'#dcol {dcol}')
-    # print(f'x:{x}')
 
     
     for idx in range(w*h):
