@@ -69,4 +69,6 @@ for _ in range(student_count):
             switch(arr, idx2)
 
 arr.pop(0)  # 0번 인덱스 제거
-print(*arr)
+# 20개씩 출력
+for i in range(0, len(arr), 20):
+    print(*arr[i:i + 20])
