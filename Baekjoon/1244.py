@@ -40,4 +40,33 @@
 # 예를 들어 21번 스위치가 있다면 이 스위치의 상태는 둘째 줄 맨 앞에 출력한다. 켜진 스위치는 1, 꺼진 스위치는 0으로 표시하고, 스위치 상태 사이에 빈칸을 하나씩 둔다.
 
 
-        
+
+def switch(arr, idx):
+    if arr[idx] == 0:
+        arr[idx] = 1
+    elif arr[idx] == 1:
+        arr[idx] = 0
+
+switch_count = int(input()) + 1  # 스위치 개수 + 1 (0번 인덱스 추가)
+arr = list(map(int, input().split()))
+arr.insert(0, 0)  # 0번 인덱스에 0 채우기
+
+student_count = int(input())  # 학생 수
+
+for _ in range(student_count):
+    s, n = map(int, input().split())
+
+    if s == 1:  # 성별이 남자일 경우
+        for idx in range(n, len(arr), n):
+            switch(arr, idx)
+
+    else:  # 성별이 여자일 경우
+        x = 0
+        while 1 <= (n - x) and (n + x) < len(arr) and arr[n - x] == arr[n + x]:
+            x += 1
+        x -= 1
+        for idx2 in range(n - x, n + x + 1):
+            switch(arr, idx2)
+
+arr.pop(0)  # 0번 인덱스 제거
+print(*arr)
