@@ -31,3 +31,41 @@
 # 2 ≤ N ≤ 50
 # 10 ≤ x, y ≤ 200
 
+N = int(input())
+size_list = [] # [(55, 185), (58, 183), (88, 186), (60, 175), (46, 155)]
+count_list = [0]*N # 큰 값을 세는 리스트
+
+for n in range(N): # 입력 튜플로 묶어 담아 리스트에 넣기
+    size_list.append(tuple(map(int, input().split())))
+    
+for idx in range(N):
+    for i in range(N):
+        if size_list[idx][0] > size_list[i][0]: # idx번째 사람의 몸무게와 다른 이의 몸무게 비교하여 크다면
+            if size_list[idx][1] > size_list[i][1]: # idx번째 사람의 몸무게와 다른 이의 키 비교하여 크다면
+                count_list[idx] += 1
+        
+rank_list = [0]*N # 등수 리스트
+rank_num = 1
+count_result = [] # 등수를 채운 인덱스를 채워줄 것
+while len(count_result) < N:
+    max_num = -1
+    max_in = -1
+    max_list = [] # 가장 큰 값의 인덱스가 들어 있는 리스트
+    for rank in range(N):
+        if count_list[rank] > max_num:
+            max_num = count_list[rank]
+            max_in = rank
+    for rank2 in range(N):
+        if count_list[rank2] == max_num and rank2 != max_in:
+            max_list.append(rank2)
+            count_result.append(rank2)
+        # max_index = count_list.index(max(count_list))
+    max_list.append(max_in)
+    count_result.append(rank2)
+        
+    for max_index in max_list:
+        rank_list[max_index] = rank_num
+        count_list[max_index] = -1 # 랭크를 메긴 수는 -1을 넣어 초기화
+    rank_num += 1
+print(rank_list)
+
