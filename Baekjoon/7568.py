@@ -66,6 +66,6 @@ while len(count_result) < N:
     for max_index in max_list:
         rank_list[max_index] = rank_num
         count_list[max_index] = -1 # 랭크를 메긴 수는 -1을 넣어 초기화
-    rank_num += 1
-print(rank_list)
+    rank_num += len(max_list)
+print(*rank_list, sep=" ")
 
