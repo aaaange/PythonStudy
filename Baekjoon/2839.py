@@ -15,38 +15,16 @@
 # 출력
 # 상근이가 배달하는 봉지의 최소 개수를 출력한다. 만약, 정확하게 N킬로그램을 만들 수 없다면 -1을 출력한다.
 
-def sugar_div(namerge):
-    global count
-    if namerge < 3: # 나머지가 3보다 작으면 나눌 수 없으므로 리턴
-        return -1
-    elif namerge == 0: # 나머지가 0이면 
-        return count # count를 리턴
-    else: # 아직 나눌 수 있다면
-        if namerge % 3 == 0: # 나머지가 3으로 나누어 떨어질 때
-            count += namerge // 3 # 몫을 카운팅
-            namerge %= 3 # 나머지를 다시 재할당
-            return count # 카운트 리턴
-        else: # 3으로 나누어 떨어지지 않을 때
-            count -= 1 # 5kg 짜리 봉지 하나 빼고
-            namerge += 5 # 나머지에 5 추가 
-            return sugar_div(namerge) # 반복
+def sugar_div(n):
+    count = 0
+    while n >= 0:
+        if n % 5 == 0: # 만약 5로 나누어 떨어진다면
+            count += n // 5 # 5로만 카운팅하기
+            return count 
+        n -= 3 # 5로 나누어 떨어지지 않는다면 배달할 무게에서 3을 한 번 빼고
+        count += 1 # 카운팅 -> 3kg 짜리 봉지 +1 // 그리고 다시 리턴 돌기
+    return -1 # 3과 5로 나누어 떨어지지 않는다면 -1 리턴
 
+N = int(input()) # 배달해야할 설탕 무게 
 
-N = int(input())
-
-sugar = [5, 3] # 설탕 봉지가 5kg, 3kg짜리가 있음
-
-count = 0 # 배달 해야 할 봉지 수
-count3 = 0
-
-# 5kg 봉지 먼저 세보기
-if N >= 5:
-    count += N // sugar[0]
-    namerge = N % sugar[0]
-    result = sugar_div(namerge) # 3으로 나누는 것은 함수로
-    print(result)
-else:
-    if N == 3:
-        print(1)
-    else:
-        print(-1)
+print(sugar_div(N)) # 출력
