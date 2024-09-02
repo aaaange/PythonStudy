@@ -13,3 +13,39 @@
 # 출력
 # 입력된 수열을 만들기 위해 필요한 연산을 한 줄에 한 개씩 출력한다. push연산은 +로, pop 연산은 -로 표현하도록 한다. 불가능한 경우 NO를 출력한다.
 
+N = int(input()) # 수열 개수
+
+arr = []
+
+# 수열 입력
+for i in range(N):
+    arr.append(int(input()))
+
+print(arr)
+
+stack = [0]* N
+top = -1
+result = []
+
+for idx in range(N-1, -1, -1): # 스택은 선입후출이니 뒤에서부터 봄
+    for num in range(1,N+1):
+        if arr[idx] == num:
+            if stack[top] <= num:
+                top += 1
+                stack[top] = num
+                break
+            else:
+                while stack[top] > num:
+                    result.append(stack.pop(top))
+                    top -= 1
+                top += 1
+                stack[top] = num
+                break
+
+while top > -1:
+    result.append(stack.pop(top))
+    top -= 1
+    
+print(result)
+
+## 내림차순 배열을 만드는 코드를 짜버림.. 
