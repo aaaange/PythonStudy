@@ -10,3 +10,23 @@
 # 출력
 # 첫째 줄부터 N개의 줄에 점을 정렬한 결과를 출력한다.
 
+def Bubble_sort(a, N):
+    for i in range(N-1, 0, -1):
+        for j in range(0, i):
+            if arr[j][1] > arr[j+1][1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+            elif arr[j][1] == arr[j+1][1]: # y값이 같다면
+                if arr[j][0] > arr[j+1][0]: # x의 값을 비교
+                    arr[j], arr[j+1] = arr[j+1], arr[j]
+
+N  = int(input()) # 좌표 개수
+arr = [[0]*2 for _ in range(N)]
+for i in range(N): # 좌표를 입력 받기
+    arr[i][0], arr[i][1] = map(int, input().split())
+    
+Bubble_sort(arr, N)
+
+for i in range(N):
+    print(*arr[i])
+
+
