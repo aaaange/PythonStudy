@@ -9,3 +9,14 @@
 
 # 출력
 # 첫째 줄에 2×n 크기의 직사각형을 채우는 방법의 수를 10,007로 나눈 나머지를 출력한다.
+
+N = int(input())
+
+count_list = [0]*1001
+count_list[1] = 1
+count_list[2] = 3
+
+for i in range(3,N+1):
+    count_list[i] = count_list[i-1]*1 + count_list[i-2]*2
+
+print(count_list[N]%10007)
