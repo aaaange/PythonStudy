@@ -24,3 +24,29 @@
 # 출력
 # N일 동안 N개의 운동 키트를 사용하는 모든 경우 중에서, 운동 기간동안 항상 중량이 500 이상이 되도록 하는 경우의 수를 출력한다.
 
+N, K = map(int, input().split())
+arr = list(map(int, input().split()))
+
+# print(arr) # [3, 7, 5]
+
+used = [0] * K
+count = 0
+
+def recur(level, w):
+    global count 
+    if level == N:
+        count += 1
+        return
+    
+    for i in range(N):
+        if used[i]:
+            continue
+        if w + arr[i] - K < 500:
+            continue
+        used[i] = 1
+        recur(level+1, w+arr[i]-K)
+        used[i] = 0
+    
+recur(0,500)
+
+print(count)
