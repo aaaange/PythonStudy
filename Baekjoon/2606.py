@@ -15,3 +15,58 @@
 # 1번 컴퓨터가 웜 바이러스에 걸렸을 때, 1번 컴퓨터를 통해 웜 바이러스에 걸리게 되는 컴퓨터의 수를 첫째 줄에 출력한다.
 
 
+def make_set(n):
+    p = [i for i in range(n+1)]  # 각 원소의 부모를 자신으로 초기화
+    return p
+
+
+def find(x):
+    # 원소의 부모가 자기자신이다 == 자기가 그 그룹의 대표자
+    if parents[x] == x:
+        return x
+
+    # 경로 압축 (path compression)을 통해 부모를 루트로 설정
+    parents[x] = find(parents[x])
+    return parents[x]
+
+
+
+def union(x, y):
+    root_x = find(x)
+    root_y = find(y)
+
+    if root_x == root_y:  # 이미 같은 집합이면 끝
+        return
+
+    # 다른 집합이라면 더 작은 루트노트에 합친다.
+    if root_x < root_y:
+        parents[y] = root_x
+        for i in range(N+1):
+            if parents[i] == root_y:
+                parents[i] = root_x
+    else:
+        parents[x] = root_y
+        for i in range(N+1):
+            if parents[i] == root_x:
+                parents[i] = root_y
+
+
+
+N = int(input()) # 컴퓨터 개수
+
+M = int(input()) # 연결된 컴퓨터의 쌍
+arr = [list(map(int, input().split())) for _ in range(M)]
+
+# print(arr) # [[1, 2], [2, 3], [1, 5], [5, 2], [5, 6], [4, 7]]
+
+parents = make_set(N)
+
+for i in range(len(arr)):
+    union(arr[i][0], arr[i][1])
+
+for j in range(1, N+1):
+    find(j)
+
+count = parents.count(1)
+print(count-1)
+
