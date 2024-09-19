@@ -9,3 +9,12 @@
 # 출력
 # 각 입력에 대해 직각 삼각형이 맞다면 "right", 아니라면 "wrong"을 출력한다.
 
+while True:
+    arr = list(map(int, input().split()))
+    if arr[0] == 0 and arr[1] == 0 and arr[2] == 0:
+        break
+    arr.sort(reverse=True)
+    if arr[0]**2 == arr[1]**2 + arr[2]**2:
+        print('right')
+    else:
+        print('wrong')
