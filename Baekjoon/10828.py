@@ -17,3 +17,75 @@
 # 출력
 # 출력해야하는 명령이 주어질 때마다, 한 줄에 하나씩 출력한다.
 
+class Stack:
+    def __init__(self, size):
+        self.stack = [None] * size  # 스택 배열 초기화
+        self.top = -1  # 스택의 최상위 인덱스
+        self.max_size = size  # 스택의 최대 크기
+
+    def is_full(self):
+        """
+        스택이 가득 찼는지 여부를 반환합니다.
+        """
+        return self.top + 1 == self.max_size
+
+    def push(self, value):
+        """
+        스택에 값을 추가합니다. 스택이 가득 차면 'full'을 출력합니다.
+        """
+        if self.is_full():
+            print('full')
+        else:
+            self.top += 1
+            self.stack[self.top] = value
+
+    def is_empty(self):
+        """
+        스택이 비어있는지 여부를 반환합니다.
+        """
+        return self.top == -1
+
+    def pop(self):
+        """
+        스택에서 값을 제거하고 반환합니다. 스택이 비어있으면 -1을 출력합니다.
+        """
+        if self.is_empty():
+            print(-1)
+        else:
+            value = self.stack[self.top]
+            self.top -= 1
+            print(value)
+
+    def size(self):
+        """
+        현재 스택에 들어 있는 요소의 개수를 반환합니다.
+        """
+        return self.top + 1
+
+    def top_value(self):
+        """
+        스택의 최상위 요소를 반환합니다. 스택이 비어있으면 -1을 출력합니다.
+        """
+        if self.is_empty():
+            print(-1)
+        else:
+            print(self.stack[self.top])
+
+
+N = int(input())  # 스택의 크기 입력
+
+s = Stack(N)
+
+for _ in range(N):
+    command = input().strip()
+    if command.startswith('push'):
+        _, value = command.split()
+        s.push(int(value))
+    elif command == 'pop':
+        s.pop()
+    elif command == 'size':
+        print(s.size())  # 현재 스택의 크기 출력
+    elif command == 'empty':
+        print(1 if s.is_empty() else 0)  # 스택이 비어있으면 1, 아니면 0
+    elif command == 'top':
+        s.top_value()  # 스택의 최상위 요소 출력
