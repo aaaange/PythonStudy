@@ -14,30 +14,25 @@
 # 출력
 # 첫째 줄에 N개를 만들 수 있는 랜선의 최대 길이를 센티미터 단위의 정수로 출력한다.
 
+def binary(lst, start, end, N):
+    global result
+    if start > end:  # 검색 실패
+        return
+    else:
+        mid = (start + end) // 2
+        total = 0
+        for l in lst:
+            total += l // mid
+        if total >= N:
+            result = mid
+            return binary(lst, mid + 1, end, N)
+        else:
+            return binary(lst, start, mid - 1, N)
+
 K, N = map(int, input().split()) # K 가지고 있는 랜선 개수, N 필요한 개수
 arr = [int(input()) for _ in range(K)]
-count = 0
+start, end = 1, max(arr)
+result = 0
+binary(arr, start, end, N)
 
-def BinarySearch(start, end, N, arr): # 처음 end엔 max_num
-    if start > end:
-        return None
-
-    mid = (start + end)//2
-
-    count = 0
-    for i in range(len(arr)):
-        count += arr[i] // mid
-
-    if count < N:
-        BinarySearch(start, mid -1, N, arr)
-    else:
-        result = BinarySearch(mid + 1, end, N, arr)
-        if result is not None:
-            return print(max(mid, result))
-        else:
-            return print(mid)
-
-max_num = max(arr)
-BinarySearch(1,max_num, N, arr)
-
-# print(result)
+print(result)
