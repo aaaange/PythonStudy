@@ -11,3 +11,19 @@
 # 출력
 # 첫째 줄에 상근이의 결혼식에 초대하는 동기의 수를 출력한다.
 
+N = int(input()) # 상근이의 동기 수
+M = int(input()) # 관계 수
+
+p = []
+count = 0
+
+for i in range(M):
+    x, y = map(int, input().split())
+    if x == 1:
+        if x not in p:
+            p.append(x)
+            count += 2
+        else:
+            count += 1
+
+print(count)
