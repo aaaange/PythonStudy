@@ -29,7 +29,7 @@ arr = list(map(int, input().split()))
 
 # print(arr) # [3, 7, 5]
 
-used = [0] * K
+used = [0] * N
 count = 0
 
 def recur(level, w):
