@@ -16,9 +16,12 @@
 
 # 출력
 # 첫째 줄에 땅을 고르는 데 걸리는 시간과 땅의 높이를 출력하시오. 답이 여러 개 있다면 그중에서 땅의 높이가 가장 높은 것을 출력하시오.
+import sys
 
 N, M, B = map(int, input().split()) # N 세로 길이, M 가로 길이, B 인벤토리 블럭 개수
-map_list = [list(map(int, input().split())) for _ in range(N)]
+map_list = []
+for _ in range(N):
+    map_list.append([int(x) for x in sys.stdin.readline().rstrip().split()])
 # 최소 작업량을 저장할 변수 ans를 큰 값으로 초기화
 ans = int(1e9)
 # 목표 높이를 저장할 변수 glevel 초기화
@@ -54,3 +57,5 @@ for i in range(257):  # i는 목표로 하는 땅의 높이
 
 # 최종 결과 출력 (최소 작업량, 목표 높이)
 print(ans, glevel)
+
+# python으로 제출하면 시간초과, pypy로 제출하면 정답
