@@ -26,10 +26,11 @@ N, M = map(int, input().split()) # N 나무의 수, M 필요한 나무의 길이
 
 tree_list = list(map(int, input().split()))
 
+tree_list.sort(reverse=True)
 # print(tree_list)
 
 count = 0
-H = max(tree_list) # 절단기의 시작 높이는 나무의 가장 높은 길이로 설정
+H = tree_list[0] # 절단기의 시작 높이는 나무의 가장 높은 길이로 설정
 while M > count: # 현재 자른 나무가 필요한 나무 길이와 같거나 보다 커지면 정지
     count = 0
     H -= 1
@@ -37,4 +38,6 @@ while M > count: # 현재 자른 나무가 필요한 나무 길이와 같거나 
         diff = tree_list[i] - H
         if diff > 0:
             count += diff
+        else:
+            break
 print(H)
