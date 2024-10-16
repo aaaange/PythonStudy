@@ -21,3 +21,20 @@
 # 출력
 # 적어도 M미터의 나무를 집에 가져가기 위해서 절단기에 설정할 수 있는 높이의 최댓값을 출력한다.
 
+
+N, M = map(int, input().split()) # N 나무의 수, M 필요한 나무의 길이
+
+tree_list = list(map(int, input().split()))
+
+# print(tree_list)
+
+count = 0
+H = max(tree_list) # 절단기의 시작 높이는 나무의 가장 높은 길이로 설정
+while M > count: # 현재 자른 나무가 필요한 나무 길이와 같거나 보다 커지면 정지
+    count = 0
+    H -= 1
+    for i in range(len(tree_list)):
+        diff = tree_list[i] - H
+        if diff > 0:
+            count += diff
+print(H)
